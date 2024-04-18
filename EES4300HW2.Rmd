@@ -1,0 +1,20 @@
+---
+title: "Base Metal Reserves and Upper Crustal Abundance"
+author: "Maya Maciel-Seidman"
+date: "2023-09-22"
+output:
+  pdf_document: default
+  word_document: default
+---
+
+```{r}
+library(ggplot2)
+metal = c("Cu", "Pb", "Zn", "Sn", "Hg", "Cd")
+reserves = c(690, 85, 250, 1.8, 0.093, 0.64)
+UCavg = c(23, 17.5, 61, 4, 0.035, 0.0885)
+df = data.frame(metal, reserves, UCavg)
+ggplot(df, aes(reserves, UCavg, color = metal)) + geom_point() + xlab("Reserves (MMT)") + ylab("UC Avg (ppm)") + ggtitle("Upper Crustal Abundance vs. Base Metal Reserves")
+
+```
+
+Based on the above plot, the base metal that falls off the trend is Cu. This is because the rest of the base metals seem to have a direct relationship between upper crustal abundance and reserves. However, Cu has a relatively low upper crustal abundance but a relatively very high amount of reserves. This differs from the trend of the rest of the base metals.
